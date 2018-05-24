@@ -69,7 +69,7 @@ void displayBoard(std::string& strBoard)
 {
 	for(char& c : strBoard)
 	{
-		std::cout << "[" << c << "] ";
+		std::cout << "(" << c << ") ";
 	}
 	std::cout << std::endl;
 }
