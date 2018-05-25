@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = hangman.o Puzzle.o
-LINKOBJ  = hangman.o Puzzle.o
+OBJ      = hangman.o Puzzle.o LetterChecker.o AChecker.o BChecker.o
+LINKOBJ  = hangman.o Puzzle.o LetterChecker.o AChecker.o BChecker.o
 LIBS     = -L"E:/Program Files/Dev-Cpp/MinGW64/lib" -L"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -29,3 +29,12 @@ hangman.o: hangman.cpp
 
 Puzzle.o: Puzzle.cpp
 	$(CPP) -c Puzzle.cpp -o Puzzle.o $(CXXFLAGS)
+
+LetterChecker.o: LetterChecker.cpp
+	$(CPP) -c LetterChecker.cpp -o LetterChecker.o $(CXXFLAGS)
+
+AChecker.o: AChecker.cpp
+	$(CPP) -c AChecker.cpp -o AChecker.o $(CXXFLAGS)
+
+BChecker.o: BChecker.cpp
+	$(CPP) -c BChecker.cpp -o BChecker.o $(CXXFLAGS)

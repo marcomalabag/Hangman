@@ -81,7 +81,7 @@ void Puzzle::displayBoard()
 	{
 		std::cout << "[" << c << "] ";
 	}
-	std::cout << "\n\n";
+	std::cout << "\n\n";	
 }
 
 bool Puzzle::isInBoard(const char c)

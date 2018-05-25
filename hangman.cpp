@@ -6,15 +6,15 @@ int main(int argc, char** argv)
 	srand(time(NULL));
 	Puzzle p("dictionary.txt");	
 	std::string strInput;
-	p.displayWordList();
+	p.displayWordList();	
 	
 	while(p.isGame())
-	{
+	{		
 		p.initPuzzle();
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )
 		{
-			std::cout << std::string(100, '\n');
+			std::cout << std::string(100, '\n');			
 			std::cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
 			p.displayPuzzleString();			
 			p.displayBoard();
@@ -23,7 +23,14 @@ int main(int argc, char** argv)
 			
 			if(strInput.size() == 1)
 			{
-				char cInput = std::tolower(strInput[0]);
+				LetterChecker* lc;				
+				lc = new LetterChecker(strInput[0]);
+				//char cInput = std::tolower(strInput[0]);
+				
+				char cInput = lc->toLower();
+				
+				//char cInput = LetterChecker::checkLetter(strInput[0], aChecker);
+				
 				if(p.isInBoard(cInput))
 				{
 					int ansIndex = p.findInAnswer(cInput);
@@ -40,6 +47,7 @@ int main(int argc, char** argv)
 				{
 					//no longer in board
 				}
+				delete lc;
 			}
 			else
 			{
@@ -65,7 +73,7 @@ int main(int argc, char** argv)
 				std::cout << "\nSorry, the correct word is [" << p.getAnswer() << "]!" << std::endl;
 				system("pause");
 			}
-		}		
+		}			
 	}	
 	return 0;
 }
