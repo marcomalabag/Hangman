@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = hangman.o
-LINKOBJ  = hangman.o
+OBJ      = hangman.o Puzzle.o
+LINKOBJ  = hangman.o Puzzle.o
 LIBS     = -L"E:/Program Files/Dev-Cpp/MinGW64/lib" -L"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -26,3 +26,6 @@ $(BIN): $(OBJ)
 
 hangman.o: hangman.cpp
 	$(CPP) -c hangman.cpp -o hangman.o $(CXXFLAGS)
+
+Puzzle.o: Puzzle.cpp
+	$(CPP) -c Puzzle.cpp -o Puzzle.o $(CXXFLAGS)
