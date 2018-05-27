@@ -4,14 +4,14 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = hangman.o Puzzle.o LetterChecker.o AChecker.o BChecker.o
-LINKOBJ  = hangman.o Puzzle.o LetterChecker.o AChecker.o BChecker.o
-LIBS     = -L"E:/Program Files/Dev-Cpp/MinGW64/lib" -L"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
-CXXINCS  = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = Hangman.exe
+OBJ      = build/AChecker.o build/BChecker.o build/CChecker.o build/hangman.o build/LetterChecker.o build/Puzzle.o build/LetterFunction.o build/DChecker.o build/EChecker.o build/FChecker.o build/GChecker.o build/RChecker.o build/TChecker.o build/UChecker.o build/VChecker.o build/WChecker.o build/XChecker.o build/YChecker.o build/ZChecker.o build/HChecker.o build/IChecker.o build/JChecker.o build/KChecker.o build/LChecker.o build/MChecker.o build/NChecker.o build/OChecker.o build/PChecker.o build/QChecker.o build/SChecker.o
+LINKOBJ  = build/AChecker.o build/BChecker.o build/CChecker.o build/hangman.o build/LetterChecker.o build/Puzzle.o build/LetterFunction.o build/DChecker.o build/EChecker.o build/FChecker.o build/GChecker.o build/RChecker.o build/TChecker.o build/UChecker.o build/VChecker.o build/WChecker.o build/XChecker.o build/YChecker.o build/ZChecker.o build/HChecker.o build/IChecker.o build/JChecker.o build/KChecker.o build/LChecker.o build/MChecker.o build/NChecker.o build/OChecker.o build/PChecker.o build/QChecker.o build/SChecker.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/Dennis/Documents/GitHub/Hangman/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Users/Dennis/Documents/GitHub/Hangman/include"
+BIN      = bin/Hangman.exe
 CXXFLAGS = $(CXXINCS) -std=c++11
-CFLAGS   = $(INCS) -std=c++11
+CFLAGS   = $(INCS) 
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -24,17 +24,92 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-hangman.o: hangman.cpp
-	$(CPP) -c hangman.cpp -o hangman.o $(CXXFLAGS)
+build/AChecker.o: src/AChecker.cpp
+	$(CPP) -c src/AChecker.cpp -o build/AChecker.o $(CXXFLAGS)
 
-Puzzle.o: Puzzle.cpp
-	$(CPP) -c Puzzle.cpp -o Puzzle.o $(CXXFLAGS)
+build/BChecker.o: src/BChecker.cpp
+	$(CPP) -c src/BChecker.cpp -o build/BChecker.o $(CXXFLAGS)
 
-LetterChecker.o: LetterChecker.cpp
-	$(CPP) -c LetterChecker.cpp -o LetterChecker.o $(CXXFLAGS)
+build/CChecker.o: src/CChecker.cpp
+	$(CPP) -c src/CChecker.cpp -o build/CChecker.o $(CXXFLAGS)
 
-AChecker.o: AChecker.cpp
-	$(CPP) -c AChecker.cpp -o AChecker.o $(CXXFLAGS)
+build/hangman.o: src/hangman.cpp
+	$(CPP) -c src/hangman.cpp -o build/hangman.o $(CXXFLAGS)
 
-BChecker.o: BChecker.cpp
-	$(CPP) -c BChecker.cpp -o BChecker.o $(CXXFLAGS)
+build/LetterChecker.o: src/LetterChecker.cpp
+	$(CPP) -c src/LetterChecker.cpp -o build/LetterChecker.o $(CXXFLAGS)
+
+build/Puzzle.o: src/Puzzle.cpp
+	$(CPP) -c src/Puzzle.cpp -o build/Puzzle.o $(CXXFLAGS)
+
+build/LetterFunction.o: src/LetterFunction.cpp
+	$(CPP) -c src/LetterFunction.cpp -o build/LetterFunction.o $(CXXFLAGS)
+
+build/DChecker.o: src/DChecker.cpp
+	$(CPP) -c src/DChecker.cpp -o build/DChecker.o $(CXXFLAGS)
+
+build/EChecker.o: src/EChecker.cpp
+	$(CPP) -c src/EChecker.cpp -o build/EChecker.o $(CXXFLAGS)
+
+build/FChecker.o: src/FChecker.cpp
+	$(CPP) -c src/FChecker.cpp -o build/FChecker.o $(CXXFLAGS)
+
+build/GChecker.o: src/GChecker.cpp
+	$(CPP) -c src/GChecker.cpp -o build/GChecker.o $(CXXFLAGS)
+
+build/RChecker.o: src/RChecker.cpp
+	$(CPP) -c src/RChecker.cpp -o build/RChecker.o $(CXXFLAGS)
+
+build/TChecker.o: src/TChecker.cpp
+	$(CPP) -c src/TChecker.cpp -o build/TChecker.o $(CXXFLAGS)
+
+build/UChecker.o: src/UChecker.cpp
+	$(CPP) -c src/UChecker.cpp -o build/UChecker.o $(CXXFLAGS)
+
+build/VChecker.o: src/VChecker.cpp
+	$(CPP) -c src/VChecker.cpp -o build/VChecker.o $(CXXFLAGS)
+
+build/WChecker.o: src/WChecker.cpp
+	$(CPP) -c src/WChecker.cpp -o build/WChecker.o $(CXXFLAGS)
+
+build/XChecker.o: src/XChecker.cpp
+	$(CPP) -c src/XChecker.cpp -o build/XChecker.o $(CXXFLAGS)
+
+build/YChecker.o: src/YChecker.cpp
+	$(CPP) -c src/YChecker.cpp -o build/YChecker.o $(CXXFLAGS)
+
+build/ZChecker.o: src/ZChecker.cpp
+	$(CPP) -c src/ZChecker.cpp -o build/ZChecker.o $(CXXFLAGS)
+
+build/HChecker.o: src/HChecker.cpp
+	$(CPP) -c src/HChecker.cpp -o build/HChecker.o $(CXXFLAGS)
+
+build/IChecker.o: src/IChecker.cpp
+	$(CPP) -c src/IChecker.cpp -o build/IChecker.o $(CXXFLAGS)
+
+build/JChecker.o: src/JChecker.cpp
+	$(CPP) -c src/JChecker.cpp -o build/JChecker.o $(CXXFLAGS)
+
+build/KChecker.o: src/KChecker.cpp
+	$(CPP) -c src/KChecker.cpp -o build/KChecker.o $(CXXFLAGS)
+
+build/LChecker.o: src/LChecker.cpp
+	$(CPP) -c src/LChecker.cpp -o build/LChecker.o $(CXXFLAGS)
+
+build/MChecker.o: src/MChecker.cpp
+	$(CPP) -c src/MChecker.cpp -o build/MChecker.o $(CXXFLAGS)
+
+build/NChecker.o: src/NChecker.cpp
+	$(CPP) -c src/NChecker.cpp -o build/NChecker.o $(CXXFLAGS)
+
+build/OChecker.o: src/OChecker.cpp
+	$(CPP) -c src/OChecker.cpp -o build/OChecker.o $(CXXFLAGS)
+
+build/PChecker.o: src/PChecker.cpp
+	$(CPP) -c src/PChecker.cpp -o build/PChecker.o $(CXXFLAGS)
+
+build/QChecker.o: src/QChecker.cpp
+	$(CPP) -c src/QChecker.cpp -o build/QChecker.o $(CXXFLAGS)
+
+build/SChecker.o: src/SChecker.cpp
+	$(CPP) -c src/SChecker.cpp -o build/SChecker.o $(CXXFLAGS)
