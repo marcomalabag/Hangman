@@ -2,7 +2,7 @@
 * Letter Checker base class to be extended for each 
 * letter's (A-Z) checker
 * 
-* Created by: Dennis Li (dennis.li@ubisoft.org)
+* Created by: Dennis Li (dennis.li@ubisoft.com)
 ********************************************************/
 
 #ifndef __LETTERCHECKER_H_INCLUDED__

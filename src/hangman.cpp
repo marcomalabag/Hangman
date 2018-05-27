@@ -2,7 +2,7 @@
 * Main entry point for Hangman
 * includes the game loop and the basic print info
 * 
-* Created by: Dennis Li (dennis.li@ubisoft.org)
+* Created by: Dennis Li (dennis.li@ubisoft.com)
 ********************************************************/
 
 #include <time.h>
