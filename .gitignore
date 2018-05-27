@@ -3,3 +3,6 @@ build
 
 # Ignore any executables in bin
 bin/*.exe
+
+# Ignore layout
+Hangman.layout
