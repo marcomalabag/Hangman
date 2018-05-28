@@ -4,4 +4,10 @@ class OChecker : public LetterChecker
 {	
 	//override the function "checkMyLetter"	
 	//create the function declaration here
+	public: 		
+	virtual char checkMyLetter(char inputChar);
+	
+	OChecker();	
+protected:
+	char defaultLetter;
 };
