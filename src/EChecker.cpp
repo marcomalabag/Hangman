@@ -9,5 +9,5 @@ char EChecker::checkMyLetter(char inputChar)
 		return 'e';
 	}
 	else
-		return 'e';
+		return defaultLetter;
 }
