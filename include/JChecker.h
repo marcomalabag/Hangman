@@ -6,5 +6,5 @@ class JChecker : public LetterChecker
 	//create the function declaration here
 	
 	public:
-		virtual char checkMyLetter(char inputChar);
+		char checkMyLetter(char inputChar);
 };
