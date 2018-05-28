@@ -10,6 +10,6 @@ char GChecker::checkMyLetter(char inputChar)
 	//std::cout << "\nDefault letter '*' used." << std::endl;
 	if(inputChar == 'g' || inputChar == 'G')
 	{		
-		std::cout << "kms";
+		return 'g';
 	}
 }

@@ -5,6 +5,6 @@ class GChecker : public LetterChecker
 {	
 	//override the function "checkMyLetter"	
 	public:
-		char checkMyLetter(char inputChar) override;
+		char checkMyLetter(char inputChar);
 	//create the function declaration here
 };
