@@ -7,8 +7,11 @@
 			if (i == 100) {
 				return inputChar;
 			}
+			else {
+				checkMyLetter(inputChar + 1);
+			}
 		}
-        return *;
+        return '*';
     }
 //override the function "checkMyLetter"
 //create the function definition here
