@@ -23,6 +23,7 @@ int main(int argc, char** argv)
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )
 		{
+			system("pause");
 			std::cout << std::string(75, '\n');	
 			std::cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
 			p.displayPuzzleString();
