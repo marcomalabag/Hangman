@@ -5,9 +5,9 @@
 
 char TChecker::checkMyLetter(char inputChar) 
 {	
-	if(inputChar == 'H')
-		return 'h';
+	if(inputChar == 'T' || inputChar == 't')
+		return 't';
 		
 	else
-		return '?';
+		return '*';
 }
