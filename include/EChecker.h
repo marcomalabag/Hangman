@@ -6,4 +6,5 @@ class EChecker : public LetterChecker
 	//create the function declaration here
 public: 	
 	char checkMyLetter(char inputChar) override;
+	hi
 };
