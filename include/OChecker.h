@@ -7,7 +7,6 @@ class OChecker : public LetterChecker
 	public: 		
 	virtual char checkMyLetter(char inputChar);
 	
-	OChecker();	
-protected:
-	char defaultLetter;
+	protected:
+		char defaultLetter;
 };
