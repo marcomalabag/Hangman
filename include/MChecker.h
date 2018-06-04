@@ -6,7 +6,6 @@ class MChecker : public LetterChecker
 	//create the function declaration here
 	
 	public:
-		checkMyLetter(char inputChar){
-			cout << someString << "but wot";
-		}
+		char checkMyLetter(char inputChar) override; 
+		
 };
