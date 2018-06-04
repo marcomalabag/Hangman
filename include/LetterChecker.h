@@ -8,6 +8,7 @@
 #ifndef __LETTERCHECKER_H_INCLUDED__
 #define __LETTERCHECKER_H_INCLUDED__
 
+
 #include <iostream>
 
 class LetterChecker
