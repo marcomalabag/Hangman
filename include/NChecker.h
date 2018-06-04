@@ -3,10 +3,8 @@
 #define __LETTERCHECKER_H_INCLUDED__
 
 #include <iostream>
-class NChecker : public LetterChecker
-{	
-	//override the function "checkMyLetter"	
-	//create the function declaration here
+class NChecker 
+{
 public: 	
 	/******************************************************************************
 	 * This method will check if the input character is equivalent to the Checker's letter
@@ -16,7 +14,11 @@ public:
 	 * @return char   the checker's letter, or the default letter
 	 * @params char   the inputted letter to be checked			 
 	 ******************************************************************************/	
-	virtual char nchecker(char inputChar);
-	NChecker();
-
+	virtual char checkMyLetter(char inputChar);
+	
+	LetterChecker();	
+protected:
+	char defaultLetter;
 };
+
+#endif //__LETTERCHECKER_H_INCLUDED__
