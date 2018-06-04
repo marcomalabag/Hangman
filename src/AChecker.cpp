@@ -4,8 +4,7 @@
 //create the function definition here
 
 //always returns defaultLetter :P
-char AChecker::checkMyLetter(char inputChar) 
-{
+char AChecker::checkMyLetter(char inputChar) {
 	
 	//std::cout << "\nDefault letter '*' used." << std::endl;
 	if(inputChar == 'u')	{
