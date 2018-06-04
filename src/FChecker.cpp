@@ -1,13 +1,13 @@
 #include "FChecker.h"
 
-//override the function "checkMyLetter"
-char FChecker::checkMyLetter(char inputChar) 
+//always returns defaultLetter :P
+char FChecker::checkMyLetter(char inputChar)
 {
-	char letter; 
-	letter = 'f';
-	printf("haha fuk");
-	return letter;
+	//std::cout << "\nDefault letter '*' used." << std::endl;
+	if(inputChar == 'F' || inputChar == 'f')
+	{
+		return 'f';
+	}
+	else
+		return defaultLetter;
 }
-
-//create the function definition here
-
