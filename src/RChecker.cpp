@@ -1,5 +1,11 @@
 #include "RChecker.h"
 
-//override the function "checkMyLetter"
-//create the function definition here
-
+char RChecker::checkMyLetter(char inputChar) 
+{
+	if( inputChar == 'r' || inputChar == 'R')
+	{		
+		return 'r';
+	}
+	else
+		return defaultLetter;
+}
