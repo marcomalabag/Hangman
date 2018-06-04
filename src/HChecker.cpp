@@ -10,7 +10,7 @@ char HChecker::checkMyLetter(char inputChar)
 		return 'h';
 	}
 	else
-		return '*';
+		return 'h';
 }
 
 
