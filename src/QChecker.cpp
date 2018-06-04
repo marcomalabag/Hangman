@@ -5,9 +5,9 @@
 
 char QChecker::checkMyLetter(char inputChar){
 	
-		if(inputChar=='q'||inputChar=='Q'){
-			return 'q';
-		}
-		else
-			return defaultLetter;
+	if(inputChar=='q'||inputChar=='Q'){
+		return 'q';
+	}
+	else
+		return defaultLetter;
 }
