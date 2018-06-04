@@ -3,6 +3,7 @@
 class BChecker : public LetterChecker
 {
 	//override the function "checkMyLetter"	
+	
 	//create the function declaration here
-	char checkBLetter(char inputChar);
+	virtual char checkMyLetter(char inputChar);
 };
