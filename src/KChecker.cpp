@@ -2,8 +2,12 @@
 
 char KChecker::checkMyLetter(char inputChar) 
 {
-
-		return 'k';
+	if(inputChar == 'K' || inputChar == 'k') {
+			return 'k';
+		}
+		else {
+			return '*';
+		}
 }
 
 //sets defaultLetter to '*'
