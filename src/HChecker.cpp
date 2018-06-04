@@ -9,6 +9,8 @@ char HChecker::checkMyLetter(char inputChar)
 	{		
 		return 'h';
 	}
+	else
+	return 'h';
 
 }
 
