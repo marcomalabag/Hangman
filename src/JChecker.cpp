@@ -5,10 +5,9 @@
 
 char JChecker::checkMyLetter(char inputChar)
 {
-	std::cout << "Using overriden checkMyLetter function";
-	if(inputChar == defaultLetter)
+	if(std::tolower(inputChar) == 'j')
 	{
-		return std::tolower(inputChar);
+		return 'j';
 	}
 	return defaultLetter;
 }
