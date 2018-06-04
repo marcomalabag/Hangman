@@ -6,7 +6,7 @@
  char NChecker::checkMyLetter(char inputChar) 
 {
 	//std::cout << "\nDefault letter '*' used." << std::endl;
-	if( inputChar == 'N' && inputChar == 'n')
+	if( inputChar == 'N' || inputChar == 'n')
 	{		
 		return '*';
 	}
