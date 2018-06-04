@@ -4,7 +4,7 @@
 //create the function definition here
 
 char BChecker::checkBLetter(char inputChar) {
-	if(inputChar == 'b')
+	if(inputChar == 'b'||inputChar == 'B')
 	{		
 		return 'b';
 	}
