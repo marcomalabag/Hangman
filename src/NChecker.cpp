@@ -8,9 +8,9 @@
 	//std::cout << "\nDefault letter '*' used." << std::endl;
 	if( inputChar == 'N' || inputChar == 'n')
 	{		
-		return '*';
+		return 'n';
 	}
 	else
-		return 'n';
+		return '*';
 }
 
