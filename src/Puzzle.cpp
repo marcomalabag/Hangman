@@ -17,10 +17,8 @@ void Puzzle::initPuzzle()
 	_isWin = false;
 	nLives = 6;	
 	strBoard = {"abcdefghijklmnopqrstuvwxyz"};
-	answerString = pickWord(); //Get a word for the player to guess
+	answerString = pickWord();	
 	puzzleString = "";
-	
-	//Fill the puzzle string with the same number of blanks as the word to guess
 	for(char &c : answerString)
 	{	
 		puzzleString += '_';
