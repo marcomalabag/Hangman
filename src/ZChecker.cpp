@@ -8,8 +8,6 @@
 char ZChecker::checkMyLetter(char inputChar) 
 {	
 	//std::cout << "\nDefault letter '*' used." << std::endl;
-	
-	
 	if (inputChar =='z' || inputChar =='Z')
 	{
 		return 'z';
