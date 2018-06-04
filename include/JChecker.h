@@ -7,4 +7,5 @@ class JChecker : public LetterChecker
 	
 	public:
 		char checkMyLetter(char inputChar);
+
 };

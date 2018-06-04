@@ -5,7 +5,9 @@
 char OChecker::checkMyLetter(char inputChar) 
 {
 	//std::cout << "\nDefault letter '*' used." << std::endl;
-	if( inputChar == 'o' && inputChar == 'O')
+
+	if( inputChar == 'o' || inputChar == 'O')
+
 	{		
 		return '*';
 	}
