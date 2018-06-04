@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 	srand(time(NULL));
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
-	// p.displayWordList();                      //uncomment to see the word list loaded for the game
+	//p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();
 	
 	while(p.isGame())
