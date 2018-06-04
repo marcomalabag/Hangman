@@ -8,6 +8,7 @@
 #ifndef __LETTERCHECKER_H_INCLUDED__
 #define __LETTERCHECKER_H_INCLUDED__
 
+
 #include <iostream>
 
 class LetterChecker
@@ -21,6 +22,7 @@ public:
 	 * @return char   the checker's letter, or the default letter
 	 * @params char   the inputted letter to be checked			 
 	 ******************************************************************************/	
+	
 	virtual char checkMyLetter(char inputChar);
 	
 	LetterChecker();	
