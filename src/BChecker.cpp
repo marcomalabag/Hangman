@@ -9,6 +9,6 @@ char BChecker::checkBLetter(char inputChar) {
 		return 'b';
 	}
 	else
-		return inputChar;
+		return defaultLetter;
 
 }
