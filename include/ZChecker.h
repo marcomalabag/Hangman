@@ -2,5 +2,5 @@
 
 class ZChecker : public LetterChecker
 {	
-	char checkMyLetter (char inputChar)
+	char checkMyLetter (char inputChar);
 };
