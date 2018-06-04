@@ -6,4 +6,5 @@ char VChecker::checkMyLetter(char inputChar){
 		return defaultLetter;
 }
 //override the function "checkMyLetter"//create the function definition here
+//omnomnom
 
