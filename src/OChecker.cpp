@@ -9,8 +9,8 @@ char OChecker::checkMyLetter(char inputChar)
 	if( inputChar == 'o' || inputChar == 'O')
 
 	{		
-		return '*';
+		return 'o';
 	}
 	else
-		return 'o';
+		return '*';
 }
