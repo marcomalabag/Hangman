@@ -1,5 +1,13 @@
 #include "EChecker.h"
 
-//override the function "checkMyLetter"
-//create the function definition here
-
+//always returns defaultLetter :P	
+char EChecker::checkMyLetter(char inputChar)
+{
+	//std::cout << "\nDefault letter '*' used." << std::endl;
+	if(inputChar == 'E' || inputChar == 'e')
+	{		
+		return 'e';
+	}
+	else
+		return defaultLetter;
+}
