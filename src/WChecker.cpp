@@ -5,11 +5,7 @@
 
 char WChecker::checkMyLetter(char inputChar)
 {
-	if(inputChar == 'w')
-	{		
-		return 'w';
-	}
-	else
+	if(inputChar=='W'||inputChar=='w')
 		return 'w';
 }
 
