@@ -3,9 +3,9 @@
 #define __LETTERCHECKER_H_INCLUDED__
 
 #include <iostream>
-class NChecker 
+class NChecker : public LetterChecker
 {
-public: 	
+	
 	/******************************************************************************
 	 * This method will check if the input character is equivalent to the Checker's letter
 	 * if equivalent, returns the lower case char of the letter
@@ -15,10 +15,8 @@ public:
 	 * @params char   the inputted letter to be checked			 
 	 ******************************************************************************/	
 	virtual char checkMyLetter(char inputChar);
-	
-	LetterChecker();	
+		
 protected:
 	char defaultLetter;
 };
 
-#endif //__LETTERCHECKER_H_INCLUDED__
