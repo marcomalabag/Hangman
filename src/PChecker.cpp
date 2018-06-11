@@ -2,10 +2,13 @@
 
 //override the function "checkMyLetter"
 //create the function definition here
-char PChecker :: checkMyLetter(char inputChar) {
-	if(inputChar == 'P' || inputChar == 'p') {
+char PChecker::checkMyLetter(char inputChar)
+{
+	if(inputChar == 'p' || inputChar == 'P')
+	{
 		return 'p';
 	}
-	
-	return defaultLetter;
+	else{
+		return '*';
+	}
 }
