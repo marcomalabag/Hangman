@@ -5,7 +5,7 @@
 char YChecker::checkMyLetter(char inputChar) 
 {
 	//std::cout << "\nDefault letter '*' used." << std::endl;
-	if(inputChar == 'y')
+	if(inputChar == 'y' || inputChar == 'Y')
 	{		
 		return 'y';
 	}
