@@ -3,7 +3,7 @@
 //override the function "checkMyLetter"
 //create the function definition here
 
-char BChecker::checkBLetter(char inputChar) {
+char BChecker::checkMyLetter(char inputChar) {
 	if(inputChar == 'b'||inputChar == 'B')
 	{		
 		return 'b';
