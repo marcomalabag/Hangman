@@ -5,7 +5,7 @@
 char UChecker::checkMyLetter(char inputChar) 
 {
 	//std::cout << "\nDefault letter '*' used." << std::endl;
-	if(inputChar == 'u'){
+	if(inputChar == 'u' || inputChar == 'U'){
 		return 'u';	
 	}
 
