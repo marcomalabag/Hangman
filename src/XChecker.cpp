@@ -4,9 +4,13 @@
 //create the function definition here
 char XChecker::checkMyLetter(char inputChar) 
 {
-	if(inputChar == 'x')
+	if(inputChar == 'x' || inputChar == 'X')
 	{		
 		return 'x';
+	}
+	else
+	{
+		return defaultLetter;
 	}
 }
 
