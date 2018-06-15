@@ -65,14 +65,13 @@ public:
 	}
 	void displayScoreboard() {
 		if (FILE *file = fopen(fileName.c_str(), "r")) {
-
 			fclose(file);
 		} else {
 			std::cout << "Something went wrong with opening the file!";
 		}
 	}
 
-	void loseLife();	
+	void loseLife();
 		
 	Puzzle();
 	Puzzle(std::string strDict);
