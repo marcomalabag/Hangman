@@ -17,6 +17,7 @@ private:
 	bool _isGame, _isAlive, _isWin;
 	std::vector<std::string> vWordList;
 	std::string answerString, puzzleString, strBoard;
+	std::string fileName = "scoreboard.txt";
 	
 public:
 	bool initDictionary(const std::string& strFileName);	
@@ -41,9 +42,36 @@ public:
 	int getLives() {return nLives; }
 	
 	void addWin() { nWins++; }
-	void addLoss() { nLosses++; }	
+	void addLoss() { nLosses++; }
 	void endGame() {  _isGame = false; }	
-	
+
+	void createScoreboard() {
+		if (FILE *file = fopen(fileName.c_str(), "r")) {
+			fclose(file);
+		} else {
+			std::ofstream scoreBoardFile("scoreboard.txt");
+
+			if (!scoreBoardFile.is_open()) {
+				std::cout << "Something went wrong with opening the file!";
+				endGame();
+			}
+		}
+	}
+	void appendToScoreBoard(const std::string name, int nWins) {
+		std::ofstream scoreBoardFile;
+
+		scoreBoardFile.open(fileName, std::ios_base::app);
+		scoreBoardFile << name << " " << nWins << "\n";
+	}
+	void displayScoreboard() {
+		if (FILE *file = fopen(fileName.c_str(), "r")) {
+
+			fclose(file);
+		} else {
+			std::cout << "Something went wrong with opening the file!";
+		}
+	}
+
 	void loseLife();	
 		
 	Puzzle();

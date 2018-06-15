@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 			else //multi char input
 			{
 				if(strInput == "quit" || strInput == "exit")
-				{				
+				{
 					p.endGame();
 				}
 				else 
@@ -72,9 +72,19 @@ int main(int argc, char** argv)
 			}
 			else if (!p.isAlive())
 			{
-				p.addLoss();
+//				p.addLoss();
 				std::cout << "\nSorry, the correct word is [" << p.getAnswer() << "]!" << std::endl;
 				system("pause");
+
+				std::string name;
+				do {
+					std::cout <<"Enter your name (max of 3 characters): ";
+					std::cin >> name;
+				} while (name.size() > 3);
+
+				p.appendToScoreBoard(name, p.getWins());
+				p.displayScoreboard();
+				p.endGame();
 			}
 		}			
 	}	
