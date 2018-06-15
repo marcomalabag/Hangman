@@ -9,6 +9,10 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <map>
+#include <functional>
+#include <set>
+#include <sstream>
 
 class Puzzle
 {
@@ -43,7 +47,7 @@ public:
 	
 	void addWin() { nWins++; }
 	void addLoss() { nLosses++; }
-	void endGame() {  _isGame = false; }	
+	void endGame() {  _isGame = false; }
 
 	void createScoreboard() {
 		if (FILE *file = fopen(fileName.c_str(), "r")) {
@@ -58,13 +62,69 @@ public:
 		}
 	}
 	void appendToScoreBoard(const std::string name, int nWins) {
-		std::ofstream scoreBoardFile;
+	    if (FILE *file = fopen(fileName.c_str(), "r")) {
+            std::ofstream scoreBoardFile;
+            scoreBoardFile.open(fileName, std::ios_base::app);
+            scoreBoardFile << name << " " << nWins << "\n";
 
-		scoreBoardFile.open(fileName, std::ios_base::app);
-		scoreBoardFile << name << " " << nWins << "\n";
+            fclose(file);
+            scoreBoardFile.close();
+        } else {
+            std::cout << "Something went wrong with opening the scoreboard file!";
+            endGame();
+        }
+
 	}
+
+	struct compare {
+		template<typename T>
+		bool operator()(const T& keyValue1, const T& keyValue2) const {
+			if (keyValue1.second != keyValue2.second) {
+				return keyValue1.second > keyValue2.second;
+			}
+
+			return keyValue1.first > keyValue2.first;
+		}
+	};
+
 	void displayScoreboard() {
 		if (FILE *file = fopen(fileName.c_str(), "r")) {
+			std::ifstream scoreBoardFile(fileName);
+
+            std::map<std::string, long> playerMap;
+            std::string str;
+
+            while(std::getline(scoreBoardFile, str)) {
+
+				std::string playerName;
+				long playerScore = 0;
+				std::stringstream ss(str);
+				std::string token;
+
+				while (std::getline(ss, token, ' ')) {
+					if (playerName.empty()) {
+						playerName = token;
+					} else {
+						playerScore = strtol(token.c_str(), nullptr, 10);
+					}
+				}
+
+                playerMap.insert(std::pair<std::string, long>(playerName, playerScore));
+            }
+
+			// Declaring a set that will store the pairs using above comparision logic
+			std::set<std::pair<std::string, long>, compare> setOfPlayers(playerMap.begin(), playerMap.end());
+
+			std::cout << "+-----------+-----------+\n";
+			std::cout << "|  Player   |   Score   |\n";
+			std::cout << "+-----------+-----------+\n";
+
+            for (auto const &pair : setOfPlayers) {
+				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
+            }
+
+			std::cout << "+-----------+-----------+";
+
 			fclose(file);
 		} else {
 			std::cout << "Something went wrong with opening the file!";
