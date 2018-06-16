@@ -14,7 +14,8 @@ int main(int argc, char** argv)
 	srand(time(NULL));
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
-	//p.displayWordList();                      //uncomment to see the word list loaded for the game
+	int hint=0;
+//	p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();
 	
 	while(p.isGame())
@@ -23,10 +24,17 @@ int main(int argc, char** argv)
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )
 		{
-			std::cout << std::string(75, '\n');	
+			std::cout << std::string(5, '\n');	
 			std::cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
+		
 			p.displayPuzzleString();
-			p.displayBoard();
+
+			if(hint==0)
+				p.displayBoard();
+				
+			if(hint==1)
+				p.displayBoardHint();
+				
 			std::cout <<"Guess a letter > ";
 			std::cin >> strInput;
 			
@@ -58,6 +66,10 @@ int main(int argc, char** argv)
 				{				
 					p.endGame();
 				}
+				
+				else if(strInput == "hint")
+					hint=1;
+									
 				else 
 				{
 					std::cout << "invalid input!" << std::endl;

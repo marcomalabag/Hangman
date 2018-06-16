@@ -86,6 +86,18 @@ void Puzzle::displayBoard()
 	std::cout << "\n\n";	
 }
 
+void Puzzle::displayBoardHint()
+{
+	for(char& c : strBoard)
+	{
+		if (answerString.find(c) != std::string::npos)
+		{
+		   std::cout << "[" << c << "] ";
+		}
+	}
+	std::cout << "\n\n";	
+}
+
 bool Puzzle::isInBoard(const char c)
 {
 	int charIndex = strBoard.find(c);
