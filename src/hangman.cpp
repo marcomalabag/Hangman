@@ -15,8 +15,6 @@ int main(int argc, char** argv)
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
 	int hint=0;
-
-	
 //	p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();
 	
@@ -32,12 +30,13 @@ int main(int argc, char** argv)
 			p.displayPuzzleString();
 
 			if(hint==0)
+			{
 				p.displayBoard();
+			}	
 				
 			if(hint>=1)
-				{
+			{
 				p.displayBoardHint();
-			    
 			}
 				
 			std::cout <<"Guess a letter > ";

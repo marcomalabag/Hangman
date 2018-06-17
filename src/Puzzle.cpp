@@ -1,11 +1,13 @@
 #include "Puzzle.h"
 #include "time.h"
 #include <array>
-struct hint{
+struct hint
+{
   char hints[26];
   int letters = 0;	
   int x = 0;
 } hint;
+
 void Puzzle::initGame(const std::string& strDict)
 {
 	nWins = 0;
@@ -97,73 +99,71 @@ void Puzzle::displayBoard()
 
 void Puzzle::displayBoardHint()
 {
-	int i = 0 ;
+	int i = 0;
 	int j = 0;
-    int k = 0;
+   int k = 0;
     
    if (hint.x == 0)
    {
-   srand(time(NULL));
-	for(char& c : strBoard)
-	{ 
-		if (answerString.find(c) != std::string::npos)
+	   srand(time(NULL));
+		for(char& c : strBoard)
+		{ 
+			if (answerString.find(c) != std::string::npos)
+			{
+				i++;
+			}	
+		}
+		j = i;
+		
+		if (j > 13)
 		{
-		   
-		   
-		   i++;
+			j = 26 - i;
+		}
+		  				
+		for(char& c : strBoard)
+		{ 
+			if (answerString.find(c) != std::string::npos)
+			{
+			   hint.hints[hint.letters] = c;  
+			 	hint.letters++;
+			}		
+			
+			else if (j != 0 && hint.letters != 25)
+			{
+			 	if (rand()%100 > 65) 
+				{
+					hint.hints[hint.letters] = c;
+					j--;
+					hint.letters++;
+			 	}
+			}
+		}
+		
+		int v = 0;	
+		while (v != hint.letters)
+		{
+			std::cout << "[" << hint.hints[v] << "]";
+			v++;
+		}
+		hint.x = 1;
+	}
 
+	else if (hint.x > 0)
+	{
+		int v = 0;
+		while (v != hint.letters)
+		{
+			for(char& c : strBoard)
+			{
+				if(c == hint.hints[v])
+				{
+					std::cout << "[" << hint.hints[v] << "]";
+				}	
+			}
+			v++;
 		}
 	}
-	j = i;
-	 if (j > 13)
-	  j = 26 - i;
-		for(char& c : strBoard)
-	{ 
-		if (answerString.find(c) != std::string::npos)
-		{
-		   
-		  hint.hints[hint.letters] = c;  
-		 hint.letters++;
-
-		}		
-	else if (j != 0 && hint.letters != 25)
-	 {
-	 	 
-		 if (rand()%100 > 65) 
-		  {
-		  hint.hints[hint.letters] = c;
-	 	 j--;
-	 	 hint.letters++;
-	 }
-	 }
-	}
-	int v = 0;
-	while ( v != hint.letters )
-	{
-		
-		std::cout << "[" << hint.hints[v] << "]";
-		v++;
-	}
-	hint.x = 1;
-}
-
-else if (hint.x > 0)
-{
-		int v = 0;
-	while ( v != hint.letters )
-	{
-			for(char& c : strBoard)
-	{
-		if(c == hint.hints[v])
-			std::cout << "[" << hint.hints[v] << "]";
-	}
-	
-		v++;
-	}
-}
-
-	std::cout << "\n\n";
-		
+	std::cout << "\n\n";	
 }
 
 bool Puzzle::isInBoard(const char c)
