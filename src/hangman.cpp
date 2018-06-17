@@ -19,14 +19,16 @@ int main(int argc, char** argv)
 	LetterFunction *lf = new LetterFunction();
 	
 	
-	std::cout << std::string(75, '\n');	
-	std::cout <<"Choose a Difficulty: \n(1) Easy\n(2) Medium\n(3) Hard \n> ";
-	std::cin >> strDifficulty;
+
 	//char diffInput = lf->check(strDifficulty[0]);
 	
 
 	while(p.isGame())
 	{		
+	
+		std::cout << std::string(75, '\n');	
+	std::cout <<"Choose a Difficulty: \n(1) Easy\n(2) Medium\n(3) Hard \n> ";
+	std::cin >> strDifficulty;
 		p.initPuzzle(strDifficulty);//diffInput);	
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )
