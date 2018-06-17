@@ -19,54 +19,6 @@ void Puzzle::initGame(const std::string& strDict)
 		//throw an exception
 	}
 }
-void Puzzle::cheat()
-{ // (72 up, 80 down, 77 right, 75 left)
-	int q = 0;
-	int w = 0;
-	std::cout << "Enter cheat code now:";
-while(q == 0){
-	
-	switch(getch()){
-		case 72:{
-			if(w == 0 || w == 2)
-			std:: cout << "^";
-			w++;
-			break;
-		}
-		case 80:{
-				if(w == 1)
-			std:: cout << "v";
-			w++;
-			break;
-		}
-		case 77:{
-			if(w == 3)
-			std:: cout << ">";
-			w++;
-			break;
-		}
-		case 75:{ w++;
-			break;
-		}
-		case 13:{
-			if(w == 4)
-		    {
-				 	 std::cout <<"word accessed";
-		    hint.win_code = 1;
-			 _isWin = true;
-			 q++;
-			}break;
-		}
-			break;
-		}
-		
-		
-		
-	}
-
-	
-	
-}
 
 void Puzzle::initPuzzle()
 {
@@ -103,6 +55,55 @@ bool Puzzle::initDictionary(const std::string& strFileName)
 		return false;
 	}	
 }
+void Puzzle::cheat()
+{ // (72 up, 80 down, 77 right, 75 left)
+	int q = 0;
+	int w = 0;
+	std::cout << "Enter cheat code now:";
+while(q == 0){
+	
+	switch(getch()){
+		case 72:{
+			if(w == 0 || w == 2)
+			std:: cout << "^";
+			w++;
+			break;
+		}
+		case 80:{
+				if(w == 1)
+			std:: cout << "v";
+			w++;
+			break;
+		}
+		case 77:{
+			if(w == 3)
+			std:: cout << ">";
+			w++;
+			break;
+		}
+		case 75:{ w++;
+			break;
+		}
+		case 13:{
+			if(w == 4)
+		    {
+				 	 std::cout <<"word accessed";
+		    hint.win_code = 1;
+			_isWin = true;
+			 q++;
+			}break;
+		}
+			break;
+		}
+		
+		
+		
+	}
+
+	
+	
+}
+
 
 std::string Puzzle::pickWord()
 {
@@ -248,9 +249,10 @@ void Puzzle::openPuzzle(const int ansIndex)
 		}
 	}
 	
-	if(puzzleString.find('_') == std::string::npos || hint.win_code == 1)
+	if(puzzleString.find('_') == std::string::npos )
 	{
 		_isWin = true;
+		hint.win_code = 0;
 	}
 }
 
