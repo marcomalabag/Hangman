@@ -26,7 +26,7 @@ void Puzzle::initPuzzle(char diff)
 	}else if(diff=='3'){
 		nLives = 5;	
 	}else {
-		nLives = 9999999999;
+		nLives = 0;
 	}
 	
 	//Fill the puzzle string with the same number of blanks as the word to guess
