@@ -18,6 +18,7 @@ int main(int argc, char** argv)
 	int hint=0; // hint on/off
 	int usedHint=0; //tracks if the player has already used a hint for the current round/word
 	int numberOfHints=3; // number of hints left for the game
+	int wins=0;
 	int cheat = 0;
 	
 //	p.displayWordList();                      //uncomment to see the word list loaded for the game
@@ -129,11 +130,22 @@ int main(int argc, char** argv)
 		
 			if(p.isWin())
 			{
+				wins++;
 				p.addWin();
 				std::cout << "\nCongratulations, you correctly guessed the word [" << p.getAnswer() << "]!\n"<< std::endl;
+				
+				if(wins==5)
+				{
+					std::cout << "You have earned a hint!\n"<< std::endl;
+					numberOfHints++;
+					wins=0;
+				}
+								
 				system("pause");
 				hint = 0; //turn off hint for next word
+				
 			}
+			
 			else if (!p.isAlive())
 			{
 				p.addLoss();
