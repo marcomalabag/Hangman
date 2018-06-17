@@ -15,6 +15,8 @@ int main(int argc, char** argv)
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
 	int hint=0;
+	int numberOfHints=3;
+	
 //	p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();
 	
@@ -25,7 +27,7 @@ int main(int argc, char** argv)
 		while (p.isGame() && p.isAlive() && !p.isWin() )
 		{
 			std::cout << std::string(5, '\n');	
-			std::cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
+			std::cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() <<  " | hints: " << numberOfHints << "\n\n";
 		
 			p.displayPuzzleString();
 
@@ -72,7 +74,10 @@ int main(int argc, char** argv)
 				}
 				
 				else if(strInput == "hint")
+				{
 					hint=1;
+					numberOfHints--;
+				}	
 									
 				else 
 				{
