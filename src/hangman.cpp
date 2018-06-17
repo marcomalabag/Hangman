@@ -123,9 +123,11 @@ int main(int argc, char** argv)
                         break;
 
                 default:
+                		std::cin.clear();
+                		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
                         break;
                }
-       } while(choice!=3);
+       } while(choice!=3 || std::cin.fail());
 	system("PAUSE");
     return EXIT_SUCCESS;
 }
