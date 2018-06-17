@@ -122,6 +122,8 @@ public:
 		} else {
 			std::cout << "Something went wrong with opening the file!\n\n";
 		}
+
+		system("pause");
 	}
 
 	void loseLife();
