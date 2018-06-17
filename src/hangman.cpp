@@ -12,24 +12,24 @@
 int main(int argc, char** argv)
 {	
 	srand(time(NULL));
-	Puzzle p("dictionary_many.txt");	
+	//Puzzle p("dictionary_many.txt");	
 	std::string strInput;
 	char strDifficulty;
 	//p.displayWordList();                      //uncomment to see the word list loaded for the game
-	LetterFunction *lf = new LetterFunction();
+	LetterFunction *lf = new LetterFunction();	
 	
-	
-
-	//char diffInput = lf->check(strDifficulty[0]);
-	
+	std::string strDictionary;
+	std::cout <<"Choose a Category and type either \"fruits\" for Fruits or \"many\" for Various Topics  \n>";
+	std::cin >> strDictionary;
+	Puzzle p("dictionary_" + strDictionary + ".txt");
 
 	while(p.isGame())
 	{		
 	
 		std::cout << std::string(75, '\n');	
-	std::cout <<"Choose a Difficulty: \n(1) Easy\n(2) Medium\n(3) Hard \n> ";
-	std::cin >> strDifficulty;
-		p.initPuzzle(strDifficulty);//diffInput);	
+		std::cout <<"Choose a Difficulty: \n(1) Easy\n(2) Medium\n(3) Hard \n> ";
+		std::cin >> strDifficulty;
+		p.initPuzzle(strDifficulty);	
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )
 		{
