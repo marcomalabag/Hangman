@@ -1,7 +1,8 @@
 #include "Puzzle.h"
 #include "time.h"
 #include <array>
-struct hint
+
+struct hint //struct for board hint
 {
   char hints[26];
   int letters = 0;	
@@ -97,7 +98,7 @@ void Puzzle::displayBoard()
 	std::cout << "\n\n";	
 }
 
-void Puzzle::displayBoardHint()
+void Puzzle::displayBoardHint() //hint function; removes most letters from board
 {
 	int i = 0;
 	int j = 0;

@@ -21,7 +21,7 @@ private:
 public:
 	bool initDictionary(const std::string& strFileName);	
 	void displayBoard();
-	void displayBoardHint();
+	void displayBoardHint(); //displays board with reduced letters
 	std::string pickWord();
 	bool isInBoard(const char c);
 	int findInAnswer(const char c);	

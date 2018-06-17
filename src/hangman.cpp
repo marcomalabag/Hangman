@@ -14,8 +14,9 @@ int main(int argc, char** argv)
 	srand(time(NULL));
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
-	int hint=0;
-	int numberOfHints=3;
+	
+	int hint=0; // hint on/off
+	int numberOfHints=3; // number of hints left for the game
 	
 //	p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();
@@ -31,12 +32,12 @@ int main(int argc, char** argv)
 		
 			p.displayPuzzleString();
 
-			if(hint==0)
+			if(hint==0) //if hint is "off", display normal board
 			{
 				p.displayBoard();
 			}	
 				
-			if(hint>=1)
+			if(hint>=1) //if hint is on, display board with reduced letters
 			{
 				p.displayBoardHint();
 			}
@@ -73,10 +74,10 @@ int main(int argc, char** argv)
 					p.endGame();
 				}
 				
-				else if(strInput == "hint")
+				else if(strInput == "hint") //toggle hint
 				{
 					hint=1;
-					numberOfHints--;
+					numberOfHints--; // decrease number of hints
 				}	
 									
 				else 
@@ -90,14 +91,14 @@ int main(int argc, char** argv)
 				p.addWin();
 				std::cout << "\nCongratulations, you correctly guessed the word [" << p.getAnswer() << "]!"<< std::endl;
 				system("pause");
-				hint = 0;
+				hint = 0; //turn off hint for next word
 			}
 			else if (!p.isAlive())
 			{
 				p.addLoss();
 				std::cout << "\nSorry, the correct word is [" << p.getAnswer() << "]!" << std::endl;
 				system("pause");
-				hint = 0;
+				hint = 0; //turn off hint for next word
 			}
 		}			
 	}	
