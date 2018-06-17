@@ -124,7 +124,7 @@ int main(int argc, char** argv)
 			{
 				p.cheat();
 				cheat = 0;
-				hint = 0;
+//				hint = 0;
 			}
 		
 			if(p.isWin())
