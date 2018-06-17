@@ -14,12 +14,35 @@ void Puzzle::initGame(const std::string& strDict)
 void Puzzle::initPuzzle(char diff)
 {
 	// If statements for each Difficulty Levels 1, 2, 3
-	_isAlive = true;
-	_isWin = false;
-	nLives = 6;	
-	strBoard = {"abcdefghijklmnopqrstuvwxyz"};
-	answerString = pickWord(); //Get a word for the player to guess
-	puzzleString = "";
+	if(diff=='1'){
+		_isAlive = true;
+		_isWin = false;
+		nLives = 7;	
+		strBoard = {"abcdefghijklmnopqrstuvwxyz"};
+		answerString = "easy";//pickWord(); //Get a word for the player to guess
+		puzzleString = "";
+	}else if(diff=='2'){
+		_isAlive = true;
+		_isWin = false;
+		nLives = 6;	
+		strBoard = {"abcdefghijklmnopqrstuvwxyz"};
+		answerString = "medium";//pickWord(); //Get a word for the player to guess
+		puzzleString = "";
+	}else if(diff=='3'){
+		_isAlive = true;
+		_isWin = false;
+		nLives = 5;	
+		strBoard = {"abcdefghijklmnopqrstuvwxyz"};
+		answerString = "hard";//pickWord(); //Get a word for the player to guess
+		puzzleString = "";
+	}else {
+		_isAlive = true;
+		_isWin = false;
+		nLives = 999999999999;	
+		strBoard = {"abcdefghijklmnopqrstuvwxyz"};
+		answerString = "helpmesomethinghappened";//pickWord(); //Get a word for the player to guess
+		puzzleString = "";
+	}
 	
 	//Fill the puzzle string with the same number of blanks as the word to guess
 	for(char &c : answerString)
