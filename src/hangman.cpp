@@ -116,6 +116,7 @@ int main(int argc, char** argv)
 						delete lf;
                         break;
                 case 2:
+                        p.displayScoreboard();
                         break;
                 case 3:
                         cout << "Goodbye!";

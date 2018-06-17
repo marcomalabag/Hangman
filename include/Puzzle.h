@@ -116,11 +116,11 @@ public:
 				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
             }
 
-			std::cout << "+-----------+-----------+";
+			std::cout << "+-----------+-----------+\n\n";
 
 			fclose(file);
 		} else {
-			std::cout << "Something went wrong with opening the file!";
+			std::cout << "Something went wrong with opening the file!\n\n";
 		}
 	}
 
