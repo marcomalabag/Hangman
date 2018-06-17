@@ -106,9 +106,9 @@ public:
 
             std::sort(playerMap.begin(), playerMap.end(), sortbysec);
 
-			std::cout << "+-----------+-----------+\n";
-			std::cout << "|  Player   |   Score   |\n";
-			std::cout << "+-----------+-----------+\n";
+//			std::cout << "+-----------+-----------+\n";
+			std::cout << "|\tPlayer\t|\tScore\t|\n";
+//			std::cout << "+-----------+-----------+\n";
 
 
 
@@ -116,7 +116,7 @@ public:
 				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
             }
 
-			std::cout << "+-----------+-----------+\n\n";
+//			std::cout << "+-----------+-----------+\n\n";
 
 			fclose(file);
 		} else {
