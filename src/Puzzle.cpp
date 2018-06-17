@@ -63,7 +63,7 @@ void Puzzle::cheat()
 	int q = 0;
 	int w = 0;
 	std::cout << "Enter cheat code now:";
-	while(q == 0)
+	while(q == 0) // cheat code entry 
 	{
 		switch(getch())
 		{
@@ -72,8 +72,9 @@ void Puzzle::cheat()
 				if(w == 0 || w == 2)
 				{
 					std:: cout << "^";
+					w++;
 				}
-				w++;
+				
 				break;
 			}
 			
@@ -82,23 +83,27 @@ void Puzzle::cheat()
 				if(w == 1)
 				{
 					std:: cout << "v";
+						w++;
 				}	
-				w++;
+			
 				break;
 			}
 			
 			case 77:
 			{
-				if(w == 3)
+				if(w == 3 || w== 7)
 				{
 					std:: cout << ">";
+						w++;
 				}
-				w++;
+			
 				break;
 			}
 			
 			case 75:
-			{ 	w++;
+			{ 	if(w == 4 || w== 5 || w == 6) 
+				 	std:: cout << "<";
+				  w++;
 				break;
 			}
 			
@@ -111,6 +116,21 @@ void Puzzle::cheat()
 					_isWin = true;
 				 	q++;
 				}
+				
+				else if(w == 8)
+			   {
+					std::cout <<"Gain a Life Point!\n";
+						system("pause");
+			          nLives++;
+				 	q++;
+				}
+				
+				else 
+				 {
+				 		std::cout <<" Invalid code!\n";
+				 		system("pause");
+				 		q++;
+				 }
 				break;
 			}
 			
