@@ -2,12 +2,14 @@
 #include "time.h"
 #include <array>
 #include "conio.h"
-struct hint{
-  char hints[26];
-  int letters = 0;	
-  int x = 0;
-  int win_code = 0;
+struct hint //struct for board hint
+{
+	char hints[26];
+	int letters = 0;	
+	int x = 0;
+	int win_code = 0;
 } hint;
+
 void Puzzle::initGame(const std::string& strDict)
 {
 	nWins = 0;
@@ -55,55 +57,67 @@ bool Puzzle::initDictionary(const std::string& strFileName)
 		return false;
 	}	
 }
+
 void Puzzle::cheat()
-{ // (72 up, 80 down, 77 right, 75 left)
+{ 	// (72 up, 80 down, 77 right, 75 left)
 	int q = 0;
 	int w = 0;
 	std::cout << "Enter cheat code now:";
-while(q == 0){
-	
-	switch(getch()){
-		case 72:{
-			if(w == 0 || w == 2)
-			std:: cout << "^";
-			w++;
-			break;
-		}
-		case 80:{
+	while(q == 0)
+	{
+		switch(getch())
+		{
+			case 72:
+			{
+				if(w == 0 || w == 2)
+				{
+					std:: cout << "^";
+				}
+				w++;
+				break;
+			}
+			
+			case 80:
+			{
 				if(w == 1)
-			std:: cout << "v";
-			w++;
+				{
+					std:: cout << "v";
+				}	
+				w++;
+				break;
+			}
+			
+			case 77:
+			{
+				if(w == 3)
+				{
+					std:: cout << ">";
+				}
+				w++;
+				break;
+			}
+			
+			case 75:
+			{ 	w++;
+				break;
+			}
+			
+			case 13:
+			{
+				if(w == 4)
+			   {
+					std::cout <<"Word Accessed\n";
+			    	hint.win_code = 1;
+					_isWin = true;
+				 	q++;
+				}
+				break;
+			}
+			
 			break;
 		}
-		case 77:{
-			if(w == 3)
-			std:: cout << ">";
-			w++;
-			break;
-		}
-		case 75:{ w++;
-			break;
-		}
-		case 13:{
-			if(w == 4)
-		    {
-				 	 std::cout <<"word accessed";
-		    hint.win_code = 1;
-			_isWin = true;
-			 q++;
-			}break;
-		}
-			break;
-		}
-		
-		
-		
 	}
-
-	
-	
 }
-
 
 std::string Puzzle::pickWord()
 {
@@ -146,75 +160,73 @@ void Puzzle::displayBoard()
 	std::cout << "\n\n";	
 }
 
-void Puzzle::displayBoardHint()
+void Puzzle::displayBoardHint() //hint function; removes most letters from board
 {
-	int i = 0 ;
+	int i = 0;
 	int j = 0;
-    int k = 0;
+   int k = 0;
     
    if (hint.x == 0)
    {
-   srand(time(NULL));
-	for(char& c : strBoard)
-	{ 
-		if (answerString.find(c) != std::string::npos)
+	   srand(time(NULL));
+		for(char& c : strBoard)
+		{ 
+			if (answerString.find(c) != std::string::npos)
+			{
+				i++;
+			}	
+		}
+		j = i;
+		
+		if (j > 13)
 		{
-		   
-		   
-		   i++;
+			j = 26 - i;
+		}
+		  				
+		for(char& c : strBoard)
+		{ 
+			if (answerString.find(c) != std::string::npos)
+			{
+			   hint.hints[hint.letters] = c;  
+			 	hint.letters++;
+			}		
+			
+			else if (j != 0 && hint.letters != 25)
+			{
+			 	if (rand()%100 > 65) 
+				{
+					hint.hints[hint.letters] = c;
+					j--;
+					hint.letters++;
+			 	}
+			}
+		}
+		
+		int v = 0;	
+		while (v != hint.letters)
+		{
+			std::cout << "[" << hint.hints[v] << "]";
+			v++;
+		}
+		hint.x = 1;
+	}
 
+	else if (hint.x > 0)
+	{
+		int v = 0;
+		while (v != hint.letters)
+		{
+			for(char& c : strBoard)
+			{
+				if(c == hint.hints[v])
+				{
+					std::cout << "[" << hint.hints[v] << "]";
+				}	
+			}
+			v++;
 		}
 	}
-	j = i;
-	 if (j > 13)
-	  j = 26 - i;
-		for(char& c : strBoard)
-	{ 
-		if (answerString.find(c) != std::string::npos)
-		{
-		   
-		  hint.hints[hint.letters] = c;  
-		 hint.letters++;
-
-		}		
-	else if (j != 0 && hint.letters != 25)
-	 {
-	 	 
-		 if (rand()%100 > 65) 
-		  {
-		  hint.hints[hint.letters] = c;
-	 	 j--;
-	 	 hint.letters++;
-	 }
-	 }
-	}
-	int v = 0;
-	while ( v != hint.letters )
-	{
-		
-		std::cout << "[" << hint.hints[v] << "]";
-		v++;
-	}
-	hint.x = 1;
-}
-
-else if (hint.x > 0)
-{
-		int v = 0;
-	while ( v != hint.letters )
-	{
-			for(char& c : strBoard)
-	{
-		if(c == hint.hints[v])
-			std::cout << "[" << hint.hints[v] << "]";
-	}
-	
-		v++;
-	}
-}
-
-	std::cout << "\n\n";
-		
+	std::cout << "\n\n";	
 }
 
 bool Puzzle::isInBoard(const char c)
@@ -249,10 +261,9 @@ void Puzzle::openPuzzle(const int ansIndex)
 		}
 	}
 	
-	if(puzzleString.find('_') == std::string::npos )
+	if(puzzleString.find('_') == std::string::npos)
 	{
 		_isWin = true;
-		hint.win_code = 0;
 	}
 }
 
