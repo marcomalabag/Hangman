@@ -14,17 +14,25 @@ int main(int argc, char** argv)
 	srand(time(NULL));
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
+	std::string strDifficulty;
 	//p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();
 	
+	
+	std::cout << std::string(75, '\n');	
+	std::cout <<"Choose a Difficulty: \n(1) Easy\n(2) Medium\n(3) Hard \n> ";
+	std::cin >> strDifficulty;
+	char diffInput = lf->check(strDifficulty[0]);
+	
+
 	while(p.isGame())
 	{		
-		p.initPuzzle();
+		p.initPuzzle(diffInput);	
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )
 		{
 			std::cout << std::string(75, '\n');	
-			std::cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
+			std::cout << "Hangman"<<diffInput<<"! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
 			p.displayPuzzleString();
 			p.displayBoard();
 			std::cout <<"Guess a letter > ";

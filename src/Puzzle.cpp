@@ -11,8 +11,9 @@ void Puzzle::initGame(const std::string& strDict)
 	}
 }
 
-void Puzzle::initPuzzle()
+void Puzzle::initPuzzle(char diff)
 {
+	// If statements for each Difficulty Levels 1, 2, 3
 	_isAlive = true;
 	_isWin = false;
 	nLives = 6;	
