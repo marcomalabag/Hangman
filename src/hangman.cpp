@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 	std::string strInput;
 	
 	int hint=0; // hint on/off
+	int usedHint=0; //tracks if the player has already used a hint for the current round/word
 	int numberOfHints=3; // number of hints left for the game
 	
 //	p.displayWordList();                      //uncomment to see the word list loaded for the game
@@ -34,6 +35,7 @@ int main(int argc, char** argv)
 
 			if(hint==0) //if hint is "off", display normal board
 			{
+				usedHint=0;
 				p.displayBoard();
 			}	
 				
@@ -76,8 +78,30 @@ int main(int argc, char** argv)
 				
 				else if(strInput == "hint") //toggle hint
 				{
-					hint=1;
-					numberOfHints--; // decrease number of hints
+					if(usedHint==0 && numberOfHints==0)
+					{
+						std::cout << "\nYou're out of hints!\n" << std::endl;
+					}
+					
+					else if(usedHint==1 && numberOfHints>0) // prevent player from using another hint
+					{
+						std::cout << "\nYou've already used a hint for this word!\n" << std::endl;
+					}
+					
+					else if(usedHint==1 && numberOfHints==0) // prevent player from using another hint
+					{
+						std::cout << "\nYou just used your last hint for this word!\n" << std::endl;
+					}
+					
+					else //toggle hint
+					{
+						std::cout << "\nYou used a hint!\n" << std::endl;
+						numberOfHints--; // decrease number of hints
+						hint=1;
+						usedHint=1;
+					}
+					
+					system("pause");
 				}	
 									
 				else 
