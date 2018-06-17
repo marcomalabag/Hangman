@@ -15,6 +15,7 @@ int main(int argc, char** argv)
 	Puzzle p("dictionary_many.txt");	
 	std::string strInput;
 	int hint=0;
+	int cheat = 0;
 
 	
 //	p.displayWordList();                      //uncomment to see the word list loaded for the game
@@ -39,7 +40,10 @@ int main(int argc, char** argv)
 				p.displayBoardHint();
 			    
 			}
-				
+			
+		 
+			if(cheat != 1){
+			
 			std::cout <<"Guess a letter > ";
 			std::cin >> strInput;
 			
@@ -65,6 +69,7 @@ int main(int argc, char** argv)
 					//no longer in board					
 				}				
 			}
+		
 			else //multi char input
 			{
 				if(strInput == "quit" || strInput == "exit")
@@ -74,7 +79,9 @@ int main(int argc, char** argv)
 				
 				else if(strInput == "hint")
 					hint=1;
-									
+								
+				else if(strInput == "sv_cheat_Hangman")	
+				   cheat = 1;				
 				else 
 				{
 					std::cout << "invalid input!" << std::endl;
@@ -96,8 +103,21 @@ int main(int argc, char** argv)
 				hint = 0;
 			}
 		}			
+		 if(cheat == 1)
+			{
+				
+				p.cheat();
+				p.addWin();
+				std::cout << "\nCongratulations, you correctly guessed the word [" << p.getAnswer() << "]!"<< std::endl;
+				system("pause");
+				hint = 0;
+				cheat = 0;
+			}
 	}	
-	delete lf;
 	
+	
+	delete lf;
+}
+ 
 	return 0;
 }

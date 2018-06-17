@@ -26,6 +26,7 @@ public:
 	bool isInBoard(const char c);
 	int findInAnswer(const char c);	
 	void openPuzzle(const int ansIndex);
+	void cheat();
 	
 	void initGame(const std::string& strDict);   //get puzzle from dictionary
 	void initPuzzle(); 							//reset lives, get a new word
