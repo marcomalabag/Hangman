@@ -22,12 +22,12 @@ LeftChar=1
 [Editors]
 
 Order=8,10,4,12
-Focused=12
+Focused=10
 
 [Editor_4]
 CursorCol=11
 CursorRow=35
-TopLine=27
+TopLine=26
 =======
 
 CursorCol=21
@@ -67,7 +67,7 @@ LeftChar=1
 
 CursorCol=4
 CursorRow=90
-TopLine=37
+TopLine=17
 
 LeftChar=1
 [Editor_9]
@@ -77,9 +77,9 @@ TopLine=1
 LeftChar=1
 [Editor_10]
 
-CursorCol=4
-CursorRow=20
-TopLine=1
+CursorCol=7
+CursorRow=129
+TopLine=107
 
 LeftChar=1
 [Editor_10]
@@ -113,7 +113,7 @@ LeftChar=1
 
 CursorCol=20
 CursorRow=1
-TopLine=23
+TopLine=12
 
 LeftChar=1
 [Editor_15]

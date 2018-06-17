@@ -109,7 +109,7 @@ void Puzzle::cheat()
 			
 			case 13:
 			{
-				if(w == 4)
+				if(w == 4) // condition for Auto Guess
 			   {
 					std::cout <<"Word Accessed\n";
 			    	hint.win_code = 1;
@@ -117,7 +117,7 @@ void Puzzle::cheat()
 				 	q++;
 				}
 				
-				else if(w == 8)
+				else if(w == 8) // condition for Gain a life
 			   {
 					std::cout <<"Gain a Life Point!\n";
 						system("pause");
@@ -125,7 +125,7 @@ void Puzzle::cheat()
 				 	q++;
 				}
 				
-				else 
+				else  // invalid code input
 				 {
 				 		std::cout <<" Invalid code!\n";
 				 		system("pause");
