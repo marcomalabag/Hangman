@@ -18,22 +18,23 @@ void Puzzle::initPuzzle(char diff)
 		strBoard = {"abcdefghijklmnopqrstuvwxyz"};
 		answerString = pickWord(); //Get a word for the player to guess
 		puzzleString = "";
-	// If statements for each Difficulty Levels 1, 2, 3
-	if(diff=='1'){
-		nLives = 7;	
-	}else if(diff=='2'){
-		nLives = 6;	
-	}else if(diff=='3'){
-		nLives = 5;	
-	}else {
-		nLives = 0;
-	}
-	
-	//Fill the puzzle string with the same number of blanks as the word to guess
-	for(char &c : answerString)
-	{	
-		puzzleString += '_';
-	}	
+		
+		// States number of lives to begin with based on selected difficulty
+		if(diff=='1'){
+			nLives = 7;	
+		}else if(diff=='2'){
+			nLives = 6;	
+		}else if(diff=='3'){
+			nLives = 5;	
+		}else {
+			nLives = 0;
+		}
+		
+		//Fill the puzzle string with the same number of blanks as the word to guess
+		for(char &c : answerString)
+		{	
+			puzzleString += '_';
+		}	
 }
 
 bool Puzzle::initDictionary(const std::string& strFileName)

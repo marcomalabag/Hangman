@@ -19,23 +19,23 @@ int main(int argc, char** argv)
 	LetterFunction *lf = new LetterFunction();	
 	
 	retry:
-	std::cout << std::string(75, '\n');	
-	std::cout <<"Choose a Difficulty: \n(1) Easy \n(2) Medium \n(3) Hard \n> ";
-	std::cin >> strDifficulty;
-	
-	
-	std::string strDictionary;
-	if (strDifficulty == '1')
-		strDictionary="easy";
-	else if (strDifficulty == '2')
-		strDictionary="medium";
-	else if (strDifficulty == '3')
-		strDictionary="hard"; 
-	else{
-		std::cout << "Please choose from 1 to 3\n";
-		system("pause");
-		goto retry;
-	} 
+		std::cout << std::string(75, '\n');	
+		std::cout <<"Choose a Difficulty: \n[1] Easy \n[2] Medium \n[3] Hard \n> ";
+		std::cin >> strDifficulty;
+		
+		
+		std::string strDictionary;
+		if (strDifficulty == '1')
+			strDictionary="easy";
+		else if (strDifficulty == '2')
+			strDictionary="medium";
+		else if (strDifficulty == '3')
+			strDictionary="hard"; 
+		else{
+			std::cout << "Please choose from 1 to 3\n";
+			system("pause");
+			goto retry;
+		} 
 	
 
 	
