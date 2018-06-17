@@ -30,14 +30,15 @@ int GetInput()
 int main(int argc, char** argv)
 {	
 	int choice = 0;
-	srand(time(NULL));
-	Puzzle p("dictionary_many.txt");	
-	std::string strInput;
-	//p.displayWordList();                      //uncomment to see the word list loaded for the game
-	LetterFunction *lf = new LetterFunction();
 
     do
     {
+		srand(time(NULL));
+		Puzzle p("dictionary_many.txt");
+		std::string strInput;
+		//p.displayWordList();                      //uncomment to see the word list loaded for the game
+		LetterFunction *lf = new LetterFunction();
+
         system("cls");
         DisplayMainMenu();
         choice = GetInput();
