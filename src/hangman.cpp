@@ -18,17 +18,31 @@ int main(int argc, char** argv)
 	//p.displayWordList();                      //uncomment to see the word list loaded for the game
 	LetterFunction *lf = new LetterFunction();	
 	
+	retry:
+	std::cout << std::string(75, '\n');	
+	std::cout <<"Choose a Difficulty: \n(1) Easy AKA fruits\n(2) Medium AKA many\n(3) Hard AKA <insert new directory here?>\n> ";
+	std::cin >> strDifficulty;
+	
+	
 	std::string strDictionary;
-	std::cout <<"Choose a Category and type either \"fruits\" for Fruits or \"many\" for Various Topics  \n>";
-	std::cin >> strDictionary;
+	if (strDifficulty == '1')
+	strDictionary="fruits";
+	else if (strDifficulty == '2')
+	strDictionary="many";
+	else if (strDifficulty == '3')
+	strDictionary="many"; // used many for now
+	else{
+	std::cout << "Please choose from 1 to 3\n";
+	system("pause");
+	goto retry;
+	} 
+	
+
+	
 	Puzzle p("dictionary_" + strDictionary + ".txt");
 
 	while(p.isGame())
 	{		
-	
-		std::cout << std::string(75, '\n');	
-		std::cout <<"Choose a Difficulty: \n(1) Easy\n(2) Medium\n(3) Hard \n> ";
-		std::cin >> strDifficulty;
 		p.initPuzzle(strDifficulty);	
 						
 		while (p.isGame() && p.isAlive() && !p.isWin() )

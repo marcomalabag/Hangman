@@ -13,7 +13,6 @@ void Puzzle::initGame(const std::string& strDict)
 
 void Puzzle::initPuzzle(char diff)
 {
-	
 		_isAlive = true;
 		_isWin = false;
 		strBoard = {"abcdefghijklmnopqrstuvwxyz"};
