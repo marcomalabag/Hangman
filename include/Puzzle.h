@@ -9,10 +9,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <map>
-#include <functional>
-#include <set>
 #include <sstream>
+#include <algorithm>
 
 class Puzzle
 {
@@ -76,26 +74,20 @@ public:
 
 	}
 
-	struct compare {
-		template<typename T>
-		bool operator()(const T& keyValue1, const T& keyValue2) const {
-			if (keyValue1.second != keyValue2.second) {
-				return keyValue1.second > keyValue2.second;
-			}
-
-			return keyValue1.first > keyValue2.first;
-		}
-	};
+	static bool sortbysec(const std::pair<std::string, long> &a,
+                   const std::pair<std::string, long> &b) {
+        return (a.second > b.second);
+    }
 
 	void displayScoreboard() {
 		if (FILE *file = fopen(fileName.c_str(), "r")) {
 			std::ifstream scoreBoardFile(fileName);
 
-            std::map<std::string, long> playerMap;
+//            std::map<std::string, long> playerMap;
+            std::vector<std::pair<std::string, long>> playerMap;
             std::string str;
 
             while(std::getline(scoreBoardFile, str)) {
-
 				std::string playerName;
 				long playerScore = 0;
 				std::stringstream ss(str);
@@ -109,17 +101,18 @@ public:
 					}
 				}
 
-                playerMap.insert(std::pair<std::string, long>(playerName, playerScore));
+				playerMap.emplace_back(playerName, playerScore);
             }
 
-			// Declaring a set that will store the pairs using above comparision logic
-			std::set<std::pair<std::string, long>, compare> setOfPlayers(playerMap.begin(), playerMap.end());
+            std::sort(playerMap.begin(), playerMap.end(), sortbysec);
 
 			std::cout << "+-----------+-----------+\n";
 			std::cout << "|  Player   |   Score   |\n";
 			std::cout << "+-----------+-----------+\n";
 
-            for (auto const &pair : setOfPlayers) {
+
+
+            for (auto const &pair : playerMap) {
 				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
             }
 
