@@ -111,12 +111,17 @@ public:
 			std::cout << "|   Player  |   Score   |\n";
 			std::cout << "+-----------+-----------+\n";
 
-
+			int ctr = 0;
 
             for (auto const &pair : playerMap) {
+            	if (ctr >= 10) {
+            		break;
+            	}
+
 //				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
 				std::cout << "|    "  << std::setw(3) << pair.first << "    ";
 				std::cout << "|   "  << std::setw(5) << pair.second << "   |\n";
+				ctr++;
             }
 
 			std::cout << "+-----------+-----------+\n\n";
