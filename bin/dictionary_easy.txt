@@ -6,7 +6,7 @@ three
 four
 five
 six
-seve
+seven
 eight
 nine
 ten
