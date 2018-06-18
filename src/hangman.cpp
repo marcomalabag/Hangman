@@ -9,23 +9,22 @@
 #include "Puzzle.h"
 #include "PuzzleView.h"
 #include "LetterFunction.h"
-using namespace std;
 
 int GetInput()
 {
 	int choice;
-	cin >> choice;
+	std::cin >> choice;
 	return choice;
 }
 
  void DisplayMainMenu()
  {
-		cout << "Main Menu\n";
-    cout << "Please make your selection\n";
-    cout << "1 - Start game\n";
-    cout << "2 - Show scoreboard\n";
-    cout << "3 - Quit\n";
-    cout << "Selection: ";
+		std::cout << "Main Menu\n";
+    std::cout << "Please make your selection\n";
+    std::cout << "1 - Start game\n";
+    std::cout << "2 - Show scoreboard\n";
+    std::cout << "3 - Quit\n";
+    std::cout << "Selection: ";
  }
 
 int main(int argc, char** argv)
@@ -35,9 +34,10 @@ int main(int argc, char** argv)
     do
     {
 		srand(time(NULL));
-		Puzzle p("dictionary_many.txt");
+//		Puzzle p("dictionary_many.txt");
         PuzzleView pV;
 		std::string strInput;
+        char strDifficulty;
 		//p.displayWordList();                      //uncomment to see the word list loaded for the game
 		LetterFunction *lf = new LetterFunction();
 
@@ -46,13 +46,34 @@ int main(int argc, char** argv)
         choice = GetInput();
         switch(choice) {
                 case 1:
+                retry:
+                    std::cout << std::string(75, '\n');
+                    std::cout <<"Choose a Difficulty: \n[1] Easy \n[2] Medium \n[3] Hard \n> ";
+                    std::cin >> strDifficulty;
+
+
+                    std::string strDictionary;
+                    if (strDifficulty == '1')
+                        strDictionary="easy";
+                    else if (strDifficulty == '2')
+                        strDictionary="medium";
+                    else if (strDifficulty == '3')
+                        strDictionary="hard";
+                    else{
+                        std::cout << "Please choose from 1 to 3\n";
+                        system("pause");
+                        goto retry;
+                    }
+
+                Puzzle p("dictionary_" + strDictionary + ".txt");
+
 						while(p.isGame())
 						{
                             pV.displayWelcomeMessage();
-							p.initPuzzle();
+							p.initPuzzle(strDifficulty);
 							while (p.isGame() && p.isAlive() && !p.isWin() )
 							{
-								cout << std::string(75, '\n');
+								std::cout << std::string(75, '\n');
 //								cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
 //								p.displayPuzzleString();
 //								p.displayBoard();
@@ -60,8 +81,8 @@ int main(int argc, char** argv)
                                 pV.displayScores(p.getLives(), p.getWins(), p.getLosses());
                                 pV.displayPuzzleString(p.getPuzzleString());
                                 pV.displayBoard(p.getStrBoard());
-								cout <<"Guess a letter > ";
-								cin >> strInput;
+								std::cout <<"Guess a letter > ";
+								std::cin >> strInput;
 
 								if(strInput.size() == 1) //single char input
 								{
@@ -93,7 +114,7 @@ int main(int argc, char** argv)
 									}
 									else
 									{
-										cout << "invalid input!" << std::endl;
+                                        std::cout << "invalid input!" << std::endl;
 									}
 								}
 
@@ -134,7 +155,7 @@ int main(int argc, char** argv)
                         p.displayScoreboard();
                         break;
                 case 3:
-                        cout << "Goodbye!";
+                        std::cout << "Goodbye!";
                         break;
 
                 default:
