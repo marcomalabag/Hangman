@@ -11,6 +11,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <iomanip>
 
 class Puzzle
 {
@@ -106,17 +107,19 @@ public:
 
             std::sort(playerMap.begin(), playerMap.end(), sortbysec);
 
-//			std::cout << "+-----------+-----------+\n";
+			std::cout << "+-----------+-----------+\n";
 			std::cout << "|\tPlayer\t|\tScore\t|\n";
-//			std::cout << "+-----------+-----------+\n";
+			std::cout << "+-----------+-----------+\n";
 
 
 
             for (auto const &pair : playerMap) {
-				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
+//				std::cout << "|\t" << pair.first << "\t\t|\t" << pair.second << "\t\t|\n";
+				std::cout << "|    "  << std::setw(3) << pair.first << "    ";
+				std::cout << "|   "  << std::setw(5) << pair.second << "   |\n";
             }
 
-//			std::cout << "+-----------+-----------+\n\n";
+			std::cout << "+-----------+-----------+\n\n";
 
 			fclose(file);
 		} else {
