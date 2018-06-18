@@ -108,7 +108,7 @@ public:
             std::sort(playerMap.begin(), playerMap.end(), sortbysec);
 
 			std::cout << "+-----------+-----------+\n";
-			std::cout << "|\tPlayer\t|\tScore\t|\n";
+			std::cout << "|   Player  |   Score   |\n";
 			std::cout << "+-----------+-----------+\n";
 
 
