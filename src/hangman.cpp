@@ -109,12 +109,12 @@ int main(int argc, char** argv)
 						system("pause");
 					}	
 					
-					else if(strInput == "svCheatHangman")
+					else if(strInput == "sv_cheats_hangman") //activate cheats
 					{
 						cheat=1;	
 					}	
 										
-					else 
+					else //invalid input
 					{
 						std::cout << "invalid input!" << std::endl;
 					}

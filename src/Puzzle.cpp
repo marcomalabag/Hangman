@@ -2,6 +2,7 @@
 #include "time.h"
 #include <array>
 #include "conio.h"
+
 struct hint //struct for board hint
 {
 	char hints[26];
@@ -59,83 +60,125 @@ bool Puzzle::initDictionary(const std::string& strFileName)
 }
 
 void Puzzle::cheat()
-{ 	// (72 up, 80 down, 77 right, 75 left)
+{
+	char Ccode[15];
 	int q = 0;
 	int w = 0;
-	std::cout << "Enter cheat code now:";
-	while(q == 0) // cheat code entry 
+	
+	char code[2][15]= 
 	{
-		switch(getch())
+		{'^','v','^','>', '<','v'},
+		{'^','v','<','>','>','>','<','<','v','^','^','v'}
+	};
+	
+	while(q == 0 && w != 14)
+	{
+		
+		switch (getch())
 		{
 			case 72:
-			{
-				if(w == 0 || w == 2)
-				{
-					std:: cout << "^";
-					w++;
-				}
-				
+			{ 
+				std::cout << "^";
+				Ccode[w] = '^';
+				w++;
+				break;
+			}
+			case 77:
+			{ 
+				std::cout << ">";
+				Ccode[w] = '>';
+				w++;
 				break;
 			}
 			
 			case 80:
-			{
-				if(w == 1)
-				{
-					std:: cout << "v";
-						w++;
-				}	
-			
-				break;
-			}
-			
-			case 77:
-			{
-				if(w == 3 || w== 7)
-				{
-					std:: cout << ">";
-						w++;
-				}
-			
+			{ 
+				std::cout << "v";
+				Ccode[w] = 'v';
+				w++;
 				break;
 			}
 			
 			case 75:
-			{ 	if(w == 4 || w== 5 || w == 6) 
-				 	std:: cout << "<";
-				  w++;
+			{ 
+				std::cout << "<";
+				Ccode[w] = '<';
+				w++;
 				break;
 			}
 			
 			case 13:
-			{
-				if(w == 4) // condition for Auto Guess
-			   {
-					std::cout <<"\n\nWord Accessed\n";
-			    	hint.win_code = 1;
-					_isWin = true;
-				 	q++;
-				}
-				
-				else if(w == 8) // condition for Gain a life
-			   {
-					std::cout <<"\n\nGain a Life Point!\n\n";
-						system("pause");
-			          nLives++;
-				 	q++;
-				}
-				
-				else  // invalid code input
-				 {
-				 		std::cout <<"\n\nInvalid code!\n\n";
-				 		system("pause");
-				 		q++;
-				 }
+			{  
+				q++;
 				break;
 			}
-			
-			break;
 		}
+	}
+ w--;
+ 
+	if (w== 5)
+	{ 
+		int x = w;
+		while (w >=0)
+		{ 
+			if(Ccode[w]==code[0][w])
+				w--;
+				
+			if (x==w)
+			{
+				std::cout << "\n\nInvalid Cheat Code!\n\n";
+				system("pause");
+				w = -1;
+			}
+			
+			else
+			{
+				x=w;
+			}
+				
+		}
+		
+		if (x == -1)
+		{
+			std::cout << "\n\nGain a life Cheat enabled!\n\n";
+			nLives++;
+			system("pause");
+		}
+	}
+	
+	else if (w== 11) 
+	{ 
+		int x = w;
+		while (w >=0)
+		{
+			if(Ccode[w]==code[1][w])
+			{
+				w--;
+			}
+			
+			if (x==w)
+			{
+				std::cout << "\n\nInvalid Cheat Code!\n\n";
+				system("pause");
+				w = -1;
+			}
+			else
+			x=w;
+		}
+		
+		if (x == -1)
+		{
+			std::cout << "\n\nAuto Guess Cheat enabled!\n\n";
+			_isWin = true;
+			system("pause");
+		}
+	}
+	
+	else 
+	{
+		std::cout << "\n\nInvalid Cheat Code!\n\n";
+		system("pause");
+		w = -1;
 	}
 }
 
