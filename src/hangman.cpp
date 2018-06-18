@@ -7,6 +7,7 @@
 
 #include <time.h>
 #include "Puzzle.h"
+#include "PuzzleView.h"
 #include "LetterFunction.h"
 using namespace std;
 
@@ -35,6 +36,7 @@ int main(int argc, char** argv)
     {
 		srand(time(NULL));
 		Puzzle p("dictionary_many.txt");
+        PuzzleView pV;
 		std::string strInput;
 		//p.displayWordList();                      //uncomment to see the word list loaded for the game
 		LetterFunction *lf = new LetterFunction();
@@ -46,13 +48,18 @@ int main(int argc, char** argv)
                 case 1:
 						while(p.isGame())
 						{
+                            pV.displayWelcomeMessage();
 							p.initPuzzle();
 							while (p.isGame() && p.isAlive() && !p.isWin() )
 							{
 								cout << std::string(75, '\n');
-								cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
-								p.displayPuzzleString();
-								p.displayBoard();
+//								cout << "Hangman! Current Lives: " << p.getLives() << " | wins: "<< p.getWins() << " | losses: " << p.getLosses() << "\n\n";
+//								p.displayPuzzleString();
+//								p.displayBoard();
+                                pV.displayHangMan(p.getLives());
+                                pV.displayScores(p.getLives(), p.getWins(), p.getLosses());
+                                pV.displayPuzzleString(p.getPuzzleString());
+                                pV.displayBoard(p.getStrBoard());
 								cout <<"Guess a letter > ";
 								cin >> strInput;
 
@@ -93,14 +100,21 @@ int main(int argc, char** argv)
 								if(p.isWin())
 								{
 									p.addWin();
-									cout << "\nCongratulations, you correctly guessed the word [" << p.getAnswer() << "]!"<< std::endl;
-									system("pause");
+//									cout << "\nCongratulations, you correctly guessed the word [" << p.getAnswer() << "]!"<< std::endl;
+                                    pV.displayResult(p.isWin(), p.getAnswer());
+                                    system("pause");
 								}
 								else if (!p.isAlive())
 								{
+                                    std::cout << std::string(75, '\n');
+                                    pV.displayHangMan(p.getLives());
+                                    pV.displayScores(p.getLives(), p.getWins(), p.getLosses());
+                                    pV.displayPuzzleString(p.getPuzzleString());
+                                    pV.displayBoard(p.getStrBoard());
 //									p.addLoss();
-									std::cout << "\nSorry, the correct word is [" << p.getAnswer() << "]!" << std::endl;
-									system("pause");
+//									std::cout << "\nSorry, the correct word is [" << p.getAnswer() << "]!" << std::endl;
+                                    pV.displayResult(p.isWin(), p.getAnswer());
+                                    system("pause");
 
                                     std::string name;
                                     do {
