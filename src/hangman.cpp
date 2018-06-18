@@ -35,9 +35,10 @@ int main(int argc, char** argv)
     {
 		srand(time(NULL));
 //		Puzzle p("dictionary_many.txt");
+		Puzzle p = Puzzle("dictionary_many.txt");
         PuzzleView pV;
 		std::string strInput;
-        char strDifficulty;
+        std::string strDictionary;
 		//p.displayWordList();                      //uncomment to see the word list loaded for the game
 		LetterFunction *lf = new LetterFunction();
 
@@ -46,26 +47,26 @@ int main(int argc, char** argv)
         choice = GetInput();
         switch(choice) {
                 case 1:
-                retry:
-                    std::cout << std::string(75, '\n');
-                    std::cout <<"Choose a Difficulty: \n[1] Easy \n[2] Medium \n[3] Hard \n> ";
-                    std::cin >> strDifficulty;
+                    char strDifficulty;
 
+                    retry:
+                        std::cout << std::string(75, '\n');
+                        std::cout << "Choose a Difficulty: \n[1] Easy \n[2] Medium \n[3] Hard \n> ";
+                        std::cin >> strDifficulty;
 
-                    std::string strDictionary;
-                    if (strDifficulty == '1')
-                        strDictionary="easy";
-                    else if (strDifficulty == '2')
-                        strDictionary="medium";
-                    else if (strDifficulty == '3')
-                        strDictionary="hard";
-                    else{
-                        std::cout << "Please choose from 1 to 3\n";
-                        system("pause");
-                        goto retry;
-                    }
+                        if (strDifficulty == '1')
+                            strDictionary = "easy";
+                        else if (strDifficulty == '2')
+                            strDictionary = "medium";
+                        else if (strDifficulty == '3')
+                            strDictionary = "hard";
+                        else {
+                            std::cout << "Please choose from 1 to 3\n";
+                            system("pause");
+                            goto retry;
+                        }
 
-                Puzzle p("dictionary_" + strDictionary + ".txt");
+                    p = Puzzle("dictionary_" + strDictionary + ".txt");
 
 						while(p.isGame())
 						{

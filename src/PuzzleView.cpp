@@ -9,6 +9,7 @@ void PuzzleView::displayHangMan(int nLives)
 {
 	switch(nLives)
 	{
+		case 7 :
 		case 6 : std::cout << "-----\n";
 			     std::cout << " |  |\n";
 			     std::cout << " |  \n";
