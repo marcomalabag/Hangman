@@ -14,6 +14,7 @@ char LetterChecker::checkMyLetter(char inputChar)
 
 //sets defaultLetter to '*'
 LetterChecker::LetterChecker() : defaultLetter{'*'}
-{	
+{
+		
 }
 
